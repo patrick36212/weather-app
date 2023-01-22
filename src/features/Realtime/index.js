@@ -1,16 +1,43 @@
 import {Section, SectionTitle} from "../../components/Section";
-import Tile from "../../components/Tile";
+import Tile from "./Tile";
+import {TilesWrapper} from "./Tile/styled";
 
 const Realtime = () => {
   return (
     <Section>
-      <SectionTitle>Dziś</SectionTitle>
-      <Tile
-        title={"Poniedziałek"}
-        date={new Date().toLocaleString()}
-        degrees={1}
-        weather={"Wietrznie"}
-      />
+      <SectionTitle>Capital cities</SectionTitle>
+      <TilesWrapper>
+        <Tile
+          city={"Warsaw"}
+          degrees={"+7℃"}
+          air={"Fair"}
+        />
+        <Tile
+          city={"Warsaw"}
+          degrees={"+7℃"}
+          air={"Fair"}
+        />
+        <Tile
+          city={"Warsaw"}
+          degrees={"+7℃"}
+          air={"Fair"}
+        />
+        <Tile
+          city={"Warsaw"}
+          degrees={"+7℃"}
+          air={"Fair"}
+        />
+        <Tile
+          city={"Warsaw"}
+          degrees={"+7℃"}
+          air={"Fair"}
+        />
+        <Tile
+          city={"Warsaw"}
+          degrees={"+7℃"}
+          air={"Fair"}
+        />
+      </TilesWrapper>
     </Section>
   )
 }
