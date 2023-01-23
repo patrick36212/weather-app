@@ -10,8 +10,10 @@ export const light = {
     mainFont: "#F7F7F7",
     secondaryFont: "#1E1E1E",
     mainBackground: "#4695D1",
+    sectionBackground: "#F5F5F5",
     tileBackground: "#456FD1",
-    secondaryTileBackground: "#304E93"
+    secondaryTileBackground: "#304E93",
+    shadow: "#00000040"
   }
 }
 
