@@ -7,23 +7,11 @@ const breakpoints = {
 export const light = {
   breakpoints,
   colors: {
-    mainFont: "#F7F7F7",
-    secondaryFont: "#1E1E1E",
-    mainBackground: "#4695D1",
-    sectionBackground: "#F5F5F5",
-    tileBackground: "#456FD1",
-    secondaryTileBackground: "#304E93",
-    shadow: "#00000040"
-  }
-}
-
-export const dark = {
-  breakpoints,
-  colors: {
-    mainFont: "#1E1E1E",
-    secondaryFont: "#F7F7F7",
-    mainBackground: "#28417B",
-    tileBackground: "#315DC4",
-    secondaryTileBackground: "#4B74D2"
+    mainFont: "#050505",
+    mainColor: "#4695D1",
+    secondaryColor: "#456FD1",
+    borderColor: "#304E93",
+    additionalColor: "#D9D9D9",
+    shadowColor: "#00000030"
   }
 }
