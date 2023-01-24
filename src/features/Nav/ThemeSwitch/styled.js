@@ -1,24 +1,22 @@
 import styled, {css} from "styled-components";
-import {Sun, Moon} from "@styled-icons/fa-solid";
+import {Sun, Moon} from "@styled-icons/bootstrap";
 
 export const SunIcon = styled(Sun)`
   width: 20px;
   padding: 2px;
-  color: #00000040;
 `;
 
 export const MoonIcon = styled(Moon)`
   width: 20px;
   height: 20px;
   padding: 2px;
-  color: #00000040;
 `;
 
 export const ThemeSwitchBody = styled.div`
   width: 48px;
   border-radius: 30px;
-  background: #D9D9D9;
-  border: 1px solid #00000040;
+  background: ${({theme}) => theme.colors.additionalColor};
+  border: 1px solid ${({theme}) => theme.colors.borderColor};
   display: flex;
   gap: 5px;
   align-items: center;
@@ -26,7 +24,7 @@ export const ThemeSwitchBody = styled.div`
 `;
 
 export const ThemeSwitchButton = styled.button`
-  background: ${({theme}) => theme.colors.secondaryTileBackground};
+  background: ${({theme}) => theme.colors.secondaryColor};
   width: 20px;
   height: 20px;
   border-radius: 50%;

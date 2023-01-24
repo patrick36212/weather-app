@@ -1,8 +1,8 @@
 import {
   AirQualityIcon,
-  AsideNav,
-  AsideNavLink,
-  AsideWrapper,
+  Nav,
+  NavLink,
+  NavWrapper,
   ForecastIcon,
   Logo,
   MapIcon,
@@ -10,30 +10,30 @@ import {
 } from "./styled";
 import ThemeSwitch from "./ThemeSwitch";
 
-const Aside = () => {
+const Navigation = () => {
   return (
-    <AsideWrapper>
+    <NavWrapper>
       <Logo/>
-      <AsideNav>
-        <AsideNavLink>
+      <Nav>
+        <NavLink>
           <RealTimeIcon/>
           Realtime
-        </AsideNavLink>
-        <AsideNavLink>
+        </NavLink>
+        <NavLink>
           <ForecastIcon/>
           Forecast
-        </AsideNavLink>
-        <AsideNavLink>
+        </NavLink>
+        <NavLink>
           <AirQualityIcon/>
           Air quality
-        </AsideNavLink>
-        <AsideNavLink>
+        </NavLink>
+        <NavLink>
           <MapIcon/>
           Map
-        </AsideNavLink>
-      </AsideNav>
+        </NavLink>
+      </Nav>
       <ThemeSwitch/>
-    </AsideWrapper>)
+    </NavWrapper>)
 }
 
-export default Aside;
+export default Navigation;
