@@ -5,6 +5,7 @@ import Main from "../components/Main";
 import Realtime from "../features/Realtime";
 import Header from "../features/Header";
 import Navigation from "../features/Nav";
+import {Section} from "../components/Section";
 
 function App() {
   return (
@@ -12,8 +13,10 @@ function App() {
       <GlobalStyle/>
       <Main>
         <Navigation/>
-        <Header/>
-        <Realtime/>
+        <Section>
+          <Header/>
+          <Realtime/>
+        </Section>
       </Main>
     </ThemeProvider>
   );
