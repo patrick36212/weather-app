@@ -1,17 +1,52 @@
-import {RITitle, RIWrapper, RIInfo, RIAdditionalInfoWrapper, RIAdditionalInfo} from "./styled";
+import {
+  AdditionalInfo,
+  AdditionalWrapper,
+  IconInfoWrapper,
+  Info,
+  InfoWrapper,
+  MainWrapper,
+  SunriseIcon, SunsetIcon,
+  Title
+} from "./styled";
 
-const RealTimeInfo = ({city, country, degrees, realTemp, humidify, visibility, pressure}) => {
-  return (<RIWrapper>
-    <RITitle>{city}, {country}</RITitle>
 
-    <RIInfo>{degrees}℃</RIInfo>
-    <RIAdditionalInfoWrapper>
-      <RIAdditionalInfo>Feels like: {realTemp}℃</RIAdditionalInfo>
-      <RIAdditionalInfo>Humidify: {humidify}%</RIAdditionalInfo>
-      <RIAdditionalInfo>Visibility: {visibility}km</RIAdditionalInfo>
-      <RIAdditionalInfo>Pressure: {pressure}hPA</RIAdditionalInfo>
-    </RIAdditionalInfoWrapper>
-  </RIWrapper>)
+const RealTimeInfo = ({city, country, degrees, realTemp, humidify, visibility, pressure, sunriseT, sunsetT}) => {
+  return (
+    <MainWrapper>
+      <AdditionalWrapper>
+        <Title>{city}, {country}</Title>
+        <IconInfoWrapper>
+          <SunriseIcon/>
+          <Info>{degrees}℃</Info>
+        </IconInfoWrapper>
+
+        <InfoWrapper>
+          <AdditionalInfo>Feels like: {realTemp}℃</AdditionalInfo>
+          <AdditionalInfo>Humidify: {humidify}%</AdditionalInfo>
+          <AdditionalInfo>Visibility: {visibility}km</AdditionalInfo>
+          <AdditionalInfo>Pressure: {pressure}hPA</AdditionalInfo>
+        </InfoWrapper>
+      </AdditionalWrapper>
+
+      <AdditionalWrapper>
+        <Title centerTitle>Sunrise</Title>
+
+        <IconInfoWrapper>
+          <SunriseIcon/>
+          <Info>{sunriseT}</Info>
+        </IconInfoWrapper>
+      </AdditionalWrapper>
+
+      <AdditionalWrapper>
+        <Title centerTitle>Sunset</Title>
+
+        <IconInfoWrapper>
+          <SunsetIcon/>
+          <Info>{sunsetT}</Info>
+        </IconInfoWrapper>
+      </AdditionalWrapper>
+    </MainWrapper>
+  )
 };
 
 export default RealTimeInfo;
