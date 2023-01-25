@@ -7,8 +7,9 @@ const Main = styled.main`
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.05em;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: max-content 1fr;
+  gap: 20px;
 `;
 
 export default Main;
