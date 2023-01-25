@@ -2,8 +2,7 @@ import styled from "styled-components";
 
 export const  Section = styled.section`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 100px;
-  flex-grow: 1;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: ${({theme}) => theme.breakpoints.laptop}px;
 `;
