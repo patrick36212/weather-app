@@ -9,8 +9,8 @@ export const light = {
   colors: {
     mainFont: "#050505",
     mainColor: "#4695D1",
-    secondaryColor: "#456FD1",
-    borderColor: "#304E93",
+    secondaryColor: "#304E93",
+    borderColor: "#456FD1",
     additionalColor: "#D9D9D9",
     shadowColor: "#00000030"
   }
