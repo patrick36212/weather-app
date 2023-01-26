@@ -1,5 +1,6 @@
 import {HeaderDay, HeaderInfo, HeaderInfoWrapper, HeaderWrapper} from "./styled";
 import {useEffect, useState} from "react";
+import Search from "./Search";
 
 const Header = () => {
 
@@ -24,6 +25,7 @@ const Header = () => {
         <HeaderInfo>{date.toLocaleTimeString()}</HeaderInfo>
         <HeaderInfo>{date.toLocaleDateString()}</HeaderInfo>
       </HeaderInfoWrapper>
+      <Search/>
     </HeaderWrapper>
   )
 }
