@@ -3,7 +3,7 @@ import RealTimeInfo from "./RealTimeInfo";
 
 const Realtime = () => {
   return (
-    <Section>
+    <Section innerSection>
         <RealTimeInfo
           city={"Warsaw"}
           country={"PL"}
