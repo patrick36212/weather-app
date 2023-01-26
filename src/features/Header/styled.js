@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const HeaderWrapper = styled.header`
-  margin: 0 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const HeaderInfoWrapper = styled.div`
