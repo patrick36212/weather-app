@@ -1,10 +1,10 @@
 import {buildQueryString} from "./buildQueryString";
 
-const APIKey = "c3c7dcbf50539504d6b915c9e37f3659";
-const baseApiURL = "http://api.openweathermap.org/";
+const API_KEY = "c3c7dcbf50539504d6b915c9e37f3659";
+const API_URL = "http://api.openweathermap.org/";
 export const fetchFromApi = async ({path, params}) => {
   const defaultParams = {
-    api_key: APIKey,
+    appid: API_KEY,
   };
 
   const allParams = {
@@ -12,7 +12,7 @@ export const fetchFromApi = async ({path, params}) => {
     ...(params || {})
   };
 
-  const response = await  fetch(`${baseApiURL}${path}?${buildQueryString(allParams)}`);
+  const response = await  fetch(`${API_URL}${path}?${buildQueryString(allParams)}`);
 
   if (!response.ok) {
     throw new Error(response.statusText);
