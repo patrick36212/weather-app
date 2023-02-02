@@ -1,19 +1,18 @@
 import {
-  AirQualityIcon,
   Nav,
   NavLink,
-  NavWrapper,
+  HeaderWrapper,
   ForecastIcon,
-  Logo,
-  MapIcon,
-  RealTimeIcon
+  RealTimeIcon,
+  NavLogo
 } from "./styled";
 import ThemeSwitch from "./ThemeSwitch";
+import Search from "./Search";
 
-const Navigation = () => {
+const Header = () => {
   return (
-    <NavWrapper>
-      <Logo/>
+    <HeaderWrapper>
+      <NavLogo/>
       <Nav>
         <NavLink>
           <RealTimeIcon/>
@@ -23,17 +22,10 @@ const Navigation = () => {
           <ForecastIcon/>
           Forecast
         </NavLink>
-        <NavLink>
-          <AirQualityIcon/>
-          Air quality
-        </NavLink>
-        <NavLink>
-          <MapIcon/>
-          Map
-        </NavLink>
       </Nav>
+      <Search/>
       <ThemeSwitch/>
-    </NavWrapper>)
+    </HeaderWrapper>)
 }
 
-export default Navigation;
+export default Header;
