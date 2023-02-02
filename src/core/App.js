@@ -1,20 +1,20 @@
 import {ThemeProvider} from "styled-components";
 import {GlobalStyle} from "../themes/GlobalStyle";
 import {light} from "../themes/theme";
+import {Section} from "../components/Section";
 import Main from "../components/Main";
 import Realtime from "../features/Realtime";
-import Header from "../features/Header";
-import Navigation from "../features/Nav";
-import {Section} from "../components/Section";
+import DateComponent from "../components/Date";
+import Header from "../components/Header";
 
 function App() {
   return (
     <ThemeProvider theme={light}>
       <GlobalStyle/>
       <Main>
-        <Navigation/>
+        <Header/>
         <Section>
-          <Header/>
+          <DateComponent/>
           <Realtime/>
         </Section>
       </Main>
