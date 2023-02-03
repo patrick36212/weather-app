@@ -3,8 +3,7 @@ import styled from "styled-components";
 export const DateWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  max-width: max-content;
 `;
 
 export const DateTitle = styled.h1`
@@ -15,6 +14,7 @@ export const DateTitle = styled.h1`
 `;
 
 export const DateInfo = styled.p`
+  padding: 0 4px;
   font-size: 24px;
   line-height: 30px;
   margin: 4px 0;

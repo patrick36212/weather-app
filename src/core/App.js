@@ -4,7 +4,7 @@ import {light} from "../themes/theme";
 import {Section} from "../components/Section";
 import Main from "../components/Main";
 import Realtime from "../features/Realtime";
-import DateComponent from "../components/Date";
+import DateComponent from "../components/DateComponent";
 import Header from "../components/Header";
 
 function App() {
