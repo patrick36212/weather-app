@@ -1,5 +1,8 @@
 import {
-  SearchDropdownInfo, SearchDropdownInfoButton, SearchDropdownInfoItem, SearchDropdownInfoList,
+  SearchDropdownInfo,
+  SearchDropdownInfoButton,
+  SearchDropdownInfoItem,
+  SearchDropdownInfoList,
   SearchDropdownWrapper,
   SearchIcon,
   SearchInput,
@@ -20,7 +23,7 @@ const Search = () => {
         <SearchIcon/>
         <SearchInput
           onChange={({target}) => dispatch(setQuery(target.value))}
-          placeholder="Search city"
+          placeholder="Search by city name"
           value={query || ""}
         />
       </SearchInputWrapper>
