@@ -5,13 +5,17 @@ import {fetchCoordinatesError, fetchCoordinatesSuccess, selectQuery, setQuery} f
 function* fetchCoordinatesHandler() {
   const queryValue = yield select(selectQuery);
 
-  try {
-    const coordinates = yield call(getCoordinates, queryValue);
-    yield put(
-      fetchCoordinatesSuccess(coordinates)
-    );
-  } catch (error) {
-    yield put(fetchCoordinatesError());
+  if (!queryValue) {
+    return null;
+  } else {
+    try {
+      const coordinates = yield call(getCoordinates, queryValue);
+      yield put(
+        fetchCoordinatesSuccess(coordinates)
+      );
+    } catch (error) {
+      yield put(fetchCoordinatesError());
+    }
   }
 }
 
