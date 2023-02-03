@@ -11,6 +11,7 @@ import {
 } from "./styled";
 import {useDispatch, useSelector} from "react-redux";
 import {selectCoordinates, selectQuery, setQuery} from "../../coordinates/coordinatesSlice";
+import {setCoordinates} from "../../../features/Realtime/realTimeSlice";
 
 const Search = () => {
   const dispatch = useDispatch();
@@ -32,7 +33,15 @@ const Search = () => {
           <SearchDropdownInfoList>
             {coordinates.map(city => (
               <SearchDropdownInfoItem key={city.lat}>
-                <SearchDropdownInfoButton>
+                <SearchDropdownInfoButton
+                  onClick={() => {
+                    dispatch(setCoordinates({
+                      lat: city.lat,
+                      lon: city.lon
+                    }));
+                    dispatch(setQuery(""));
+                  }}
+                >
                   <SearchDropdownInfo cityName>{city.name}, {city.country}</SearchDropdownInfo>
                   <SearchDropdownInfo>lat: {city.lat.toFixed(2)} lon: {city.lon.toFixed(2)}</SearchDropdownInfo>
                 </SearchDropdownInfoButton>
