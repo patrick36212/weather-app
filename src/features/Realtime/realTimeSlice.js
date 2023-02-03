@@ -4,9 +4,16 @@ export const realTimeSlice = createSlice({
   name: "realTime",
   initialState: {
     status: "initial",
+    coordinates: {
+      lat: null,
+      lon: null
+    },
     data: []
   },
   reducers: {
+    setCoordinates: (state, payload) => {
+      state.coordinates = payload;
+    },
     fetchRealTime: state => {
       state.status = "loading";
     },
@@ -21,6 +28,7 @@ export const realTimeSlice = createSlice({
 });
 
 export const {
+  setCoordinates,
   fetchRealTime,
   fetchRealTimeError,
   fetchRealTimeSuccess
