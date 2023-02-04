@@ -11,6 +11,12 @@ import {
 
 
 const RealTimeInfo = ({city, country, degrees, realTemp, humidify, visibility, pressure, sunriseT, sunsetT}) => {
+  const visibilityValue = (visibility / 1000).toFixed(2);
+
+
+  const sunsetTime = new Date(sunsetT * 1000);
+  const sunriseTime = new Date(sunriseT * 1000);
+
   return (
     <MainWrapper>
       <AdditionalWrapper>
@@ -23,7 +29,7 @@ const RealTimeInfo = ({city, country, degrees, realTemp, humidify, visibility, p
         <InfoWrapper>
           <AdditionalInfo>Feels like: {realTemp}℃</AdditionalInfo>
           <AdditionalInfo>Humidify: {humidify}%</AdditionalInfo>
-          <AdditionalInfo>Visibility: {visibility}km</AdditionalInfo>
+          <AdditionalInfo>Visibility: {visibilityValue}km</AdditionalInfo>
           <AdditionalInfo>Pressure: {pressure}hPA</AdditionalInfo>
         </InfoWrapper>
       </AdditionalWrapper>
@@ -33,7 +39,7 @@ const RealTimeInfo = ({city, country, degrees, realTemp, humidify, visibility, p
 
         <IconInfoWrapper>
           <SunriseIcon/>
-          <Info>{sunriseT}</Info>
+          <Info>{sunriseTime.toLocaleTimeString()}</Info>
         </IconInfoWrapper>
       </AdditionalWrapper>
 
@@ -42,7 +48,7 @@ const RealTimeInfo = ({city, country, degrees, realTemp, humidify, visibility, p
 
         <IconInfoWrapper>
           <SunsetIcon/>
-          <Info>{sunsetT}</Info>
+          <Info>{sunsetTime.toLocaleTimeString()}</Info>
         </IconInfoWrapper>
       </AdditionalWrapper>
     </MainWrapper>
