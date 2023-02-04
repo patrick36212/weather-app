@@ -11,7 +11,7 @@ export const realTimeSlice = createSlice({
     data: []
   },
   reducers: {
-    setCoordinates: (state, payload) => {
+    setCoordinates: (state, {payload}) => {
       state.coordinates = payload;
     },
     fetchRealTime: state => {
@@ -38,5 +38,6 @@ const selectState = state => state.realTime;
 
 export const selectRealTimeStatus = state => selectState(state).status;
 export const selectRealTimeData = state => selectState(state).data;
+export const selectRealTimeDataCoordinates = state => selectState(state).coordinates;
 
 export default realTimeSlice.reducer;
