@@ -1,18 +1,21 @@
 import {Section} from "../../components/Section";
 import RealTimeInfo from "./RealTimeInfo";
 import {useSelector} from "react-redux";
-import {selectRealTimeData, selectRealTimeStatus} from "./realTimeSlice";
+import {selectRealTimeData, selectRealTimeDataCoordinates, selectRealTimeStatus} from "./realTimeSlice";
 
 const Realtime = () => {
   const realTimeData = useSelector(selectRealTimeData);
   const realTimeStatus = useSelector(selectRealTimeStatus);
+  const realTimeCityName = useSelector(selectRealTimeDataCoordinates);
 
   return (
     <Section innerSection>
       {realTimeStatus === "success" && (
         <RealTimeInfo
-          city={realTimeData.name}
+          icon={realTimeData.weather[0].icon}
+          city={realTimeCityName.city}
           country={realTimeData.sys.country}
+          station={realTimeData.name}
           degrees={realTimeData.main.temp.toFixed(0)}
           realTemp={realTimeData.main.feels_like.toFixed(0)}
           humidify={realTimeData.main.humidity}
