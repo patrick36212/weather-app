@@ -5,6 +5,7 @@ export const realTimeSlice = createSlice({
   initialState: {
     status: "initial",
     coordinates: {
+      city: null,
       lat: null,
       lon: null
     },
