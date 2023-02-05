@@ -8,11 +8,44 @@ import {
   SunriseIcon, SunsetIcon,
   Title
 } from "./styled";
+import {
+  BigRain,
+  BlackClouds,
+  ClearDay,
+  ClearNight,
+  FewCloudsDay,
+  FewCloudsNight,
+  Mist,
+  NormalClouds,
+  SmallRain,
+  Snow,
+  Thunderstorm
+} from "./Icons/styled";
 
 
-const RealTimeInfo = ({city, country, degrees, realTemp, humidify, visibility, pressure, sunriseT, sunsetT}) => {
+const RealTimeInfo = ({city, country, degrees, realTemp, humidify, visibility, pressure, sunriseT, sunsetT, icon, station}) => {
+  const Icons = () => ({
+    "01d": <ClearDay/>,
+    "01n": <ClearNight/>,
+    "02d": <FewCloudsDay/>,
+    "02n": <FewCloudsNight/>,
+    "03d": <NormalClouds/>,
+    "03n": <NormalClouds/>,
+    "04d": <BlackClouds/>,
+    "04n": <BlackClouds/>,
+    "09d": <BigRain/>,
+    "09n": <BigRain/>,
+    "10d": <SmallRain/>,
+    "10n": <SmallRain/>,
+    "11d": <Thunderstorm/>,
+    "11n": <Thunderstorm/>,
+    "13d": <Snow/>,
+    "13n": <Snow/>,
+    "50d": <Mist/>,
+    "50n": <Mist/>
+  }[icon]);
+
   const visibilityValue = (visibility / 1000).toFixed(2);
-
 
   const sunsetTime = new Date(sunsetT * 1000);
   const sunriseTime = new Date(sunriseT * 1000);
@@ -21,8 +54,9 @@ const RealTimeInfo = ({city, country, degrees, realTemp, humidify, visibility, p
     <MainWrapper>
       <AdditionalWrapper>
         <Title>{city}, {country}</Title>
+        <AdditionalInfo>Weather station {station}</AdditionalInfo>
         <IconInfoWrapper>
-          <SunriseIcon/>
+          <Icons/>
           <Info>{degrees}℃</Info>
         </IconInfoWrapper>
 
