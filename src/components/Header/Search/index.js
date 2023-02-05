@@ -36,6 +36,7 @@ const Search = () => {
                 <SearchDropdownInfoButton
                   onClick={() => {
                     dispatch(setCoordinates({
+                      city: city.name,
                       lat: city.lat,
                       lon: city.lon
                     }));
