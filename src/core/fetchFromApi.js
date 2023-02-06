@@ -1,6 +1,7 @@
 import {buildQueryString} from "./buildQueryString";
+import {WEATHER_API_KEY} from "./WEATHER_API_KEY";
 
-const API_KEY = process.env.REACT_APP_API_KEY;
+const API_KEY = WEATHER_API_KEY;
 const API_URL = "https://api.weatherapi.com/v1";
 export const fetchFromApi = async ({path, params}) => {
   const defaultParams = {
