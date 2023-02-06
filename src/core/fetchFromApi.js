@@ -1,10 +1,10 @@
 import {buildQueryString} from "./buildQueryString";
 
-const API_KEY = "c3c7dcbf50539504d6b915c9e37f3659";
-const API_URL = "http://api.openweathermap.org/";
+const API_KEY = process.env.REACT_APP_API_KEY;
+const API_URL = "https://api.weatherapi.com/v1";
 export const fetchFromApi = async ({path, params}) => {
   const defaultParams = {
-    appid: API_KEY,
+    key: API_KEY,
   };
 
   const allParams = {
