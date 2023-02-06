@@ -3,6 +3,7 @@ import {FileBarGraph, Bullseye} from "@styled-icons/bootstrap";
 import {ReactComponent as LogoIcon} from "./logo.svg";
 
 export const HeaderWrapper = styled.header`
+  padding: 20px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
