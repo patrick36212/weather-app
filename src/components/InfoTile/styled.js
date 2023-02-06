@@ -51,6 +51,11 @@ export const AdditionalInfo = styled.span`
   margin: 6px 0 0 0;
 `;
 
+export const Icon = styled.img`
+  width: 48px;
+  height: 48px;
+`
+
 export const SunriseIcon = styled(SunriseFill)`
   width: 48px;
 `;
