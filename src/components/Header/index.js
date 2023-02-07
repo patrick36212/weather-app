@@ -9,7 +9,7 @@ import {
 import ThemeSwitch from "./ThemeSwitch";
 import Search from "./Search";
 
-const Header = () => {
+const Header = ({setCoordinates}) => {
   return (
     <HeaderWrapper>
       <NavLogo/>
@@ -23,7 +23,7 @@ const Header = () => {
           Forecast
         </NavLink>
       </Nav>
-      <Search/>
+      <Search setCoordinates={setCoordinates}/>
       <ThemeSwitch/>
     </HeaderWrapper>)
 }
