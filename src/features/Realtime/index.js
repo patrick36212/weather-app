@@ -1,31 +1,45 @@
 import {Section} from "../../components/Section";
-import RealTimeInfo from "./RealTimeInfo";
-import {useSelector} from "react-redux";
-import {selectRealTimeData, selectRealTimeDataCoordinates, selectRealTimeStatus} from "./realTimeSlice";
+import RealTimeInfo from "../../components/InfoTile";
+import DateComponent from "../../components/DateComponent";
+import {useQuery} from "react-query";
+import {getRealTimeData} from "./getRealTimeData";
 
-const Realtime = () => {
-  const realTimeData = useSelector(selectRealTimeData);
-  const realTimeStatus = useSelector(selectRealTimeStatus);
-  const realTimeCityName = useSelector(selectRealTimeDataCoordinates);
+const Realtime = ({coordinates}) => {
+
+  const {data} = useQuery(
+    ["realTimeData", {coordinates}],
+    () => {
+      if (coordinates.lat === null || coordinates.lon === null) {
+        return null
+      } else {
+        const stringifyCoordinates = `${coordinates.lat.toString()},${coordinates.lon.toString()}`;
+        return getRealTimeData(stringifyCoordinates)
+      }
+    }
+  );
 
   return (
-    <Section innerSection>
-      {realTimeStatus === "success" && (
-        <RealTimeInfo
-          icon={realTimeData.weather[0].icon}
-          city={realTimeCityName.city}
-          country={realTimeData.sys.country}
-          station={realTimeData.name}
-          degrees={realTimeData.main.temp.toFixed(0)}
-          realTemp={realTimeData.main.feels_like.toFixed(0)}
-          humidify={realTimeData.main.humidity}
-          visibility={realTimeData.visibility}
-          pressure={realTimeData.main.pressure}
-          sunriseT={realTimeData.sys.sunrise}
-          sunsetT={realTimeData.sys.sunset}
-        />)}
-    </Section>
+    data && (
+      <Section>
+        <DateComponent
+          time={data.location.localtime_epoch}
+          fullDate={data.location.localtime}
+        />
+        <Section innerSection>
+          <RealTimeInfo
+            icon={data.current.condition.icon}
+            city={data.location.name}
+            country={data.location.country}
+            degrees={data.current.temp_c}
+            realTemp={data.current.feelslike_c}
+            humidify={data.current.humidity}
+            visibility={data.current.vis_km}
+            pressure={data.current.pressure_mb}
+          />
+        </Section>
+      </Section>
+    )
   )
-}
+};
 
 export default Realtime;
