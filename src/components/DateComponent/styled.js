@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 export const DateWrapper = styled.div`
   display: flex;
@@ -18,4 +18,9 @@ export const DateInfo = styled.p`
   font-size: 24px;
   line-height: 30px;
   margin: 4px 0;
+  
+  ${({additional}) => additional && css`
+    font-size: 16px;
+    line-height: 24px;
+  `}
 `;
