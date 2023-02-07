@@ -19,7 +19,7 @@ const InfoTile = ({city, country, icon, degrees, realTemp, humidify, visibility,
       <AdditionalWrapper>
         <Title>{city}, {country}</Title>
         <IconInfoWrapper>
-          <Icon src={icon} />
+          <Icon icon={icon} />
           <Info>{degrees}℃</Info>
         </IconInfoWrapper>
 

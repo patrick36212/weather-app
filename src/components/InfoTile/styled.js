@@ -51,9 +51,13 @@ export const AdditionalInfo = styled.span`
   margin: 6px 0 0 0;
 `;
 
-export const Icon = styled.img`
-  width: 48px;
+export const Icon = styled.div`
   height: 48px;
+  width: 48px;
+  background-image: ${({ icon }) => `url(${icon})`};
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 `
 
 export const SunriseIcon = styled(SunriseFill)`
