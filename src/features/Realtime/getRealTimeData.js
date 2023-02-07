@@ -1,10 +1,9 @@
 import {fetchFromApi} from "../../core/fetchFromApi";
 
-export const getRealTimeData = (lat, lon) => fetchFromApi({
-  path: "data/2.5/weather",
+export const getRealTimeData = (coordinates) => fetchFromApi({
+  path: "/current.json",
   params: {
-    lat: lat,
-    lon: lon,
-    units: "metric"
+    q: coordinates,
+    aqi: "no"
   }
 });
