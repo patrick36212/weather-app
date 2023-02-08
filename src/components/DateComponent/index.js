@@ -1,16 +1,16 @@
 import {DateInfo, DateTitle, DateWrapper} from "./styled";
 
-const DateComponent = ({time, fullDate}) => {
-  const timestamp = new Date(time * 1000);
+const DateComponent = () => {
+  const timestamp = new Date();
   const day = new Intl.DateTimeFormat("en", {weekday: "long"}).format(timestamp);
+  const fullDate = timestamp.toLocaleDateString();
 
   return (
     <DateWrapper>
       <DateTitle>Today is</DateTitle>
       <DateInfo>{day}</DateInfo>
       <DateInfo additional>
-        Weather actual for
-        <br/>{fullDate}
+        {fullDate}
       </DateInfo>
     </DateWrapper>
   )
