@@ -19,26 +19,24 @@ const Realtime = ({coordinates}) => {
   );
 
   return (
-    data && (
-      <Section>
-        <DateComponent
-          time={data.location.localtime_epoch}
-          fullDate={data.location.localtime}
-        />
-        <Section innerSection>
+    <Section>
+      <DateComponent/>
+      <Section innerSection>
+        {data && (
           <RealTimeInfo
             icon={data.current.condition.icon}
             city={data.location.name}
             country={data.location.country}
+            localT={data.location.localtime}
             degrees={data.current.temp_c}
+            weather={data.current.condition.text}
             realTemp={data.current.feelslike_c}
             humidify={data.current.humidity}
             visibility={data.current.vis_km}
             pressure={data.current.pressure_mb}
-          />
-        </Section>
+          />)}
       </Section>
-    )
+    </Section>
   )
 };
 
