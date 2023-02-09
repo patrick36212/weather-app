@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import {FileBarGraph, Bullseye} from "@styled-icons/bootstrap";
 import {ReactComponent as LogoIcon} from "./logo.svg";
 
 export const HeaderWrapper = styled.header`
-  padding: 20px 0;
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -11,6 +10,14 @@ export const HeaderWrapper = styled.header`
   width: 100%;
   margin: auto;
   gap: 24px;
+`;
+
+export const HeaderTitle = styled.h1`
+  font-weight: 700;
+  text-transform: uppercase;
+  color: ${({theme}) => theme.colors.secondaryColor};
+  font-size: 20px;
+  margin: 0;
 `;
 
 export const NavLogo = styled(LogoIcon)`
@@ -26,13 +33,12 @@ export const Nav = styled.div`
 `;
 
 export const NavLink = styled.a`
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
   padding: 10px;
   border-radius: 30px;
   border: 1px solid transparent;
-  font-size: 18px;
+  font-size: 14px;
   transition: .3s ease-out;
   cursor: pointer;
 
@@ -41,12 +47,4 @@ export const NavLink = styled.a`
     color: ${({theme}) => theme.colors.secondaryColor};
     transform: scale(1.02);
   }
-`;
-
-export const RealTimeIcon = styled(Bullseye)`
-  width: 20px;
-`;
-
-export const ForecastIcon = styled(FileBarGraph)`
-  width: 20px;
 `;
