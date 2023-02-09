@@ -2,28 +2,23 @@ import {
   Nav,
   NavLink,
   HeaderWrapper,
-  ForecastIcon,
-  RealTimeIcon,
-  NavLogo
+  NavLogo, HeaderTitle
 } from "./styled";
 import ThemeSwitch from "./ThemeSwitch";
-import Search from "./Search";
 
-const Header = ({setCoordinates}) => {
+const Header = () => {
   return (
     <HeaderWrapper>
       <NavLogo/>
+      <HeaderTitle>Weather App</HeaderTitle>
       <Nav>
         <NavLink>
-          <RealTimeIcon/>
           Realtime
         </NavLink>
         <NavLink>
-          <ForecastIcon/>
           Forecast
         </NavLink>
       </Nav>
-      <Search setCoordinates={setCoordinates}/>
       <ThemeSwitch/>
     </HeaderWrapper>)
 }
