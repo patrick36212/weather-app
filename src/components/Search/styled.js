@@ -1,7 +1,7 @@
-import styled, {css, keyframes} from "styled-components";
-import {Search} from  "@styled-icons/bootstrap/Search";
+import styled, { css, keyframes } from "styled-components";
+import { Search } from "@styled-icons/bootstrap/Search";
 
-const rotateX = keyframes`
+const translateY = keyframes`
   0% {
     opacity: 0;
     transform: transLateY(-20px)
@@ -10,20 +10,41 @@ const rotateX = keyframes`
     opacity: 1;
     transform: transLateY(0px)
   }
-`
+`;
+
+const dropDownSearch = keyframes`
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 100%;
+    opacity: 1;
+  }
+`;
 
 export const SearchWrapper = styled.div`
   position: relative;
-  display: flex;
   flex-direction: column;
+  display: flex;
+  max-height: 0;
+  opacity: 0;
+
+  ${({ visible }) =>
+    visible &&
+    css`
+      animation: ${dropDownSearch} 0.3s linear;
+      max-height: 100%;
+      opacity: 1;
+    `}
 `;
 export const SearchInputWrapper = styled.div`
   display: flex;
   align-items: center;
   padding: 10px;
   border-radius: 30px;
-  border: 1px solid ${({theme}) => theme.colors.borderColor};
-  background: linear-gradient(45deg, ${({theme}) => theme.colors.additionalColor} 0%, transparent 100%);
+  border: 1px solid ${({ theme }) => theme.colors.borderColor};
+  background: ${({ theme }) => theme.colors.additionalColor};
 `;
 
 export const SearchInput = styled.input`
@@ -35,7 +56,7 @@ export const SearchInput = styled.input`
 
 export const SearchIcon = styled(Search)`
   width: 20px;
-  color: ${({theme}) => theme.colors.mainColor};
+  color: ${({ theme }) => theme.colors.mainColor};
 `;
 
 export const SearchDropdownWrapper = styled.div`
@@ -55,10 +76,10 @@ export const SearchDropdownInfoList = styled.ul`
 `;
 
 export const SearchDropdownInfoItem = styled.li`
-  border: 1px solid ${({theme}) => theme.colors.borderColor};
+  border: 1px solid ${({ theme }) => theme.colors.borderColor};
   border-radius: 5px;
-  
-  animation: ${rotateX} .7s ease-out;
+
+  animation: ${translateY} 0.7s ease-out;
 `;
 
 export const SearchDropdownInfoButton = styled.button`
@@ -67,7 +88,7 @@ export const SearchDropdownInfoButton = styled.button`
   width: 100%;
   text-align: left;
   border: none;
-  
+
   display: grid;
   grid-auto-rows: max-content;
   gap: 2px;
@@ -75,9 +96,11 @@ export const SearchDropdownInfoButton = styled.button`
 
 export const SearchDropdownInfo = styled.span`
   font-size: 14px;
-  
-  ${({cityName}) => cityName && css`
-    font-size: 16px;
-    font-weight: 600;
-  `}
+
+  ${({ cityName }) =>
+    cityName &&
+    css`
+      font-size: 16px;
+      font-weight: 600;
+    `}
 `;
