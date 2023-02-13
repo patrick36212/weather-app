@@ -57,6 +57,7 @@ export const InfoWrapper = styled.div`
   height: 100%;
   display: grid;
   align-items: center;
+  margin: 12px 0;
   grid-template-columns: repeat(2, 1fr);
 `;
 
