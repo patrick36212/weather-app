@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { Add } from "@styled-icons/fluentui-system-filled/Add";
 
 export const RealTimeWrapper = styled.div`
-  width: 470px;
+  max-width: 470px;
+  width: 100%;
   height: 260px;
   border-radius: 30px;
   display: flex;
