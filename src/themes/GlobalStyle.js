@@ -1,4 +1,4 @@
-import {createGlobalStyle} from "styled-components";
+import { createGlobalStyle } from "styled-components";
 import normalize from "styled-normalize";
 
 export const GlobalStyle = createGlobalStyle`
@@ -6,10 +6,11 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Inter', sans-serif;
     word-wrap: anywhere;
-    height: 100vh;
+    min-height: 100vh;
     box-sizing: border-box;
-    color: ${({theme}) => theme.colors.mainFont};
-    background: linear-gradient(67.1deg, ${({theme}) => theme.colors.mainColor} 0%, transparent 100%);
+    color: ${({ theme }) => theme.colors.mainFont};
+    background: linear-gradient(67.1deg, ${({ theme }) =>
+      theme.colors.mainColor} 0%, transparent 100%);
   }
 
   *, ::after, ::before {
