@@ -1,11 +1,11 @@
-import {EmojiFrown} from "@styled-icons/bootstrap/EmojiFrown";
-import styled, {keyframes} from "styled-components";
+import { EmojiFrown } from "@styled-icons/bootstrap/EmojiFrown";
+import styled, { keyframes } from "styled-components";
 
 const resize = keyframes`
   0% {
     transform: scale(1.0);
   }
-  90%{
+  90% {
     transform: scale(1.2);
   }
   100% {
@@ -14,5 +14,5 @@ const resize = keyframes`
 `;
 export const ErrorIcon = styled(EmojiFrown)`
   width: 80px;
-  animation: ${resize} .6s ease-out;
+  animation: ${resize} 0.6s ease-out;
 `;

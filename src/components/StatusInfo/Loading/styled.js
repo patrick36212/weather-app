@@ -1,5 +1,5 @@
-import {Sun} from "@styled-icons/bootstrap/Sun";
-import styled, {keyframes} from "styled-components";
+import { Sun } from "@styled-icons/bootstrap/Sun";
+import styled, { keyframes } from "styled-components";
 
 const rotation = keyframes`
   0% {

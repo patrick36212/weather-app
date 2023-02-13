@@ -1,7 +1,7 @@
 const breakpoints = {
   mobile: 450,
   tablet: 768,
-  laptop: 1024
+  laptop: 1024,
 };
 
 export const light = {
@@ -12,6 +12,6 @@ export const light = {
     secondaryColor: "#304E93",
     borderColor: "#456FD1",
     additionalColor: "#D9D9D9",
-    shadowColor: "#00000030"
-  }
-}
+    shadowColor: "#00000030",
+  },
+};

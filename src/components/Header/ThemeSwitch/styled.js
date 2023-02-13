@@ -1,5 +1,5 @@
-import styled, {css} from "styled-components";
-import {Sun, Moon} from "@styled-icons/bootstrap";
+import styled, { css } from "styled-components";
+import { Sun, Moon } from "@styled-icons/bootstrap";
 
 export const SunIcon = styled(Sun)`
   width: 20px;
@@ -15,8 +15,8 @@ export const MoonIcon = styled(Moon)`
 export const ThemeSwitchBody = styled.div`
   width: 48px;
   border-radius: 30px;
-  background: ${({theme}) => theme.colors.additionalColor};
-  border: 1px solid ${({theme}) => theme.colors.borderColor};
+  background: ${({ theme }) => theme.colors.additionalColor};
+  border: 1px solid ${({ theme }) => theme.colors.borderColor};
   display: flex;
   gap: 5px;
   align-items: center;
@@ -24,16 +24,18 @@ export const ThemeSwitchBody = styled.div`
 `;
 
 export const ThemeSwitchButton = styled.button`
-  background: ${({theme}) => theme.colors.secondaryColor};
+  background: ${({ theme }) => theme.colors.secondaryColor};
   width: 20px;
   height: 20px;
   border-radius: 50%;
   border: none;
   position: absolute;
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
   cursor: pointer;
-  
-  ${({isDarkTheme}) => isDarkTheme && css`
-    transform: translateX(22px);
-  `}
+
+  ${({ isDarkTheme }) =>
+    isDarkTheme &&
+    css`
+      transform: translateX(22px);
+    `}
 `;
