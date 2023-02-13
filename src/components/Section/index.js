@@ -1,15 +1,10 @@
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 
-export const  Section = styled.section`
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  max-width: ${({theme}) => theme.breakpoints.laptop}px;
-  width: 100%;
-  gap: 20px;
-  
-  ${({innerSection}) => innerSection && css`
-    justify-content: center;
-    height: 100%;
-  `}
+export const Section = styled.section`
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  justify-content: center;
+  align-items: center;
+  grid-gap: 12px;
+  padding: 20px;
 `;
