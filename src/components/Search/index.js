@@ -14,14 +14,7 @@ import { useQuery } from "react-query";
 import { getSearchData } from "./getSearchData";
 import useDebounce from "./useDebounce";
 
-const Search = ({
-  setCoordinates,
-  visible,
-  setIsSearchActive,
-  setCityList,
-  cityList,
-  realTimeData,
-}) => {
+const Search = ({ setCoordinates, visible, setIsSearchActive }) => {
   const [query, setQuery] = useState("");
   const debouncedQuery = useDebounce(query, 500);
 
@@ -41,7 +34,6 @@ const Search = ({
     });
     setIsSearchActive(false);
     setQuery("");
-    setCityList([...cityList, realTimeData]);
   };
 
   return (
