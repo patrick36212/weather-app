@@ -1,43 +1,74 @@
-import {Section} from "../../components/Section";
-import RealTimeInfo from "../../components/InfoTile";
-import DateComponent from "../../components/DateComponent";
-import {useQuery} from "react-query";
-import {getRealTimeData} from "./getRealTimeData";
+import { Section } from "../../components/Section";
+import { useQuery } from "react-query";
+import { getRealTimeData } from "./getRealTimeData";
+import {
+  ButtonIcon,
+  RealTimeAddButton,
+  RealTimeInfo,
+  RealTimeWrapper,
+} from "./styled";
+import { useEffect, useState } from "react";
+import Search from "../../components/Search";
+import InfoTile from "../../components/InfoTile";
 
-const Realtime = ({coordinates}) => {
+const Realtime = () => {
+  const [coordinates, setCoordinates] = useState({
+    lat: null,
+    lon: null,
+  });
+  const [isSearchActive, setIsSearchActive] = useState(false);
+  const [cityList, setCityList] = useState([]);
 
-  const {data} = useQuery(
-    ["realTimeData", {coordinates}],
-    () => {
-      if (coordinates.lat === null || coordinates.lon === null) {
-        return null
-      } else {
-        const stringifyCoordinates = `${coordinates.lat.toString()},${coordinates.lon.toString()}`;
-        return getRealTimeData(stringifyCoordinates)
-      }
+  const { data } = useQuery(["realTimeData", { coordinates }], () => {
+    if (coordinates.lat === null || coordinates.lon === null) {
+      return;
+    } else {
+      const stringifyCoordinates = `${coordinates.lat.toString()},${coordinates.lon.toString()}`;
+      return getRealTimeData(stringifyCoordinates);
     }
-  );
+  });
+
+  useEffect(() => {
+    if (!!data) {
+      setCityList((cityList) => [...cityList, data]);
+      setCoordinates({
+        lat: null,
+        lon: null,
+      });
+    }
+  }, [data]);
 
   return (
     <Section>
-      <DateComponent/>
-      <Section innerSection>
-        {data && (
-          <RealTimeInfo
-            icon={data.current.condition.icon}
-            city={data.location.name}
-            country={data.location.country}
-            localT={data.location.localtime}
-            degrees={data.current.temp_c}
-            weather={data.current.condition.text}
-            realTemp={data.current.feelslike_c}
-            humidify={data.current.humidity}
-            visibility={data.current.vis_km}
-            pressure={data.current.pressure_mb}
-          />)}
-      </Section>
+      {cityList.map((city) => (
+        <RealTimeWrapper key={city.location.lat}>
+          <InfoTile
+            icon={city.current.condition.icon}
+            city={city.location.name}
+            country={city.location.country}
+            localT={city.location.localtime}
+            degrees={city.current.temp_c}
+            weather={city.current.condition.text}
+            realTemp={city.current.feelslike_c}
+            humidify={city.current.humidity}
+            visibility={city.current.vis_km}
+            pressure={city.current.pressure_mb}
+          />
+        </RealTimeWrapper>
+      ))}
+      <RealTimeWrapper>
+        <RealTimeAddButton onClick={() => setIsSearchActive(!isSearchActive)}>
+          <ButtonIcon />
+          <RealTimeInfo>Click + to search</RealTimeInfo>
+        </RealTimeAddButton>
+        <Search
+          setCoordinates={setCoordinates}
+          setIsSearchActive={setIsSearchActive}
+          visible={isSearchActive}
+        />
+      </RealTimeWrapper>
     </Section>
-  )
+  );
 };
 
 export default Realtime;
