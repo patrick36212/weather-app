@@ -10,7 +10,8 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     color: ${({ theme }) => theme.colors.mainFont};
     background: linear-gradient(67.1deg, ${({ theme }) =>
-      theme.colors.mainColor} 0%, transparent 100%);
+      theme.colors.mainColor} 0%, ${({ theme }) =>
+  theme.colors.additionalColor} 100%);
   }
 
   *, ::after, ::before {
