@@ -1,7 +1,7 @@
 import { Nav, NavLink, HeaderWrapper, NavLogo, HeaderTitle } from "./styled";
 import ThemeSwitch from "./ThemeSwitch";
 
-const Header = () => {
+const Header = ({ isDarkTheme, setIsDarkTheme }) => {
   return (
     <HeaderWrapper>
       <NavLogo />
@@ -10,7 +10,7 @@ const Header = () => {
         <NavLink>Realtime</NavLink>
         <NavLink>Forecast</NavLink>
       </Nav>
-      <ThemeSwitch />
+      <ThemeSwitch isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme} />
     </HeaderWrapper>
   );
 };

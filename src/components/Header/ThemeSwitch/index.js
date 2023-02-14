@@ -4,11 +4,8 @@ import {
   ThemeSwitchBody,
   ThemeSwitchButton,
 } from "./styled";
-import { useState } from "react";
 
-const ThemeSwitch = () => {
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
-
+const ThemeSwitch = ({ isDarkTheme, setIsDarkTheme }) => {
   return (
     <ThemeSwitchBody onClick={() => setIsDarkTheme(!isDarkTheme)}>
       <SunIcon />
