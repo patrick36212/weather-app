@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
-import { Sun, Moon } from "@styled-icons/bootstrap";
+import { Sun } from "@styled-icons/bootstrap/Sun";
+import { Moon } from "@styled-icons/heroicons-solid/Moon";
 
 export const SunIcon = styled(Sun)`
   width: 20px;
@@ -15,7 +16,6 @@ export const MoonIcon = styled(Moon)`
 export const ThemeSwitchBody = styled.div`
   width: 48px;
   border-radius: 30px;
-  background: ${({ theme }) => theme.colors.additionalColor};
   border: 1px solid ${({ theme }) => theme.colors.borderColor};
   display: flex;
   gap: 5px;
@@ -30,12 +30,13 @@ export const ThemeSwitchButton = styled.button`
   border-radius: 50%;
   border: none;
   position: absolute;
+  transform: translateX(22px);
   transition: 0.3s ease-in-out;
   cursor: pointer;
 
   ${({ isDarkTheme }) =>
     isDarkTheme &&
     css`
-      transform: translateX(22px);
+      transform: translateX(0);
     `}
 `;
