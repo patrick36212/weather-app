@@ -10,7 +10,7 @@ export const RealTimeWrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: ${({ theme }) => theme.colors.additionalColor}45;
+  background: ${({ theme }) => theme.colors.additionalColor}65;
   box-shadow: 2px 2px 4px ${({ theme }) => theme.colors.shadowColor};
 `;
 
@@ -29,4 +29,5 @@ export const ButtonIcon = styled(Add)`
 
 export const RealTimeInfo = styled.p`
   margin: 12px 0;
+  color: ${({ theme }) => theme.colors.mainFont};
 `;
