@@ -52,6 +52,19 @@ export const SearchInput = styled.input`
   background: transparent;
   outline: none;
   margin: 0 6px;
+
+  ::placeholder {
+    color: ${({ theme }) => theme.colors.mainColor};
+    opacity: 1;
+  }
+
+  :-ms-input-placeholder {
+    color: ${({ theme }) => theme.colors.mainColor};
+  }
+
+  ::-ms-input-placeholder {
+    color: ${({ theme }) => theme.colors.mainColor};
+  }
 `;
 
 export const SearchIcon = styled(Search)`
