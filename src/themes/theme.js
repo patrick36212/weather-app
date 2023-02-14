@@ -15,3 +15,15 @@ export const light = {
     shadowColor: "#00000030",
   },
 };
+
+export const dark = {
+  breakpoints,
+  colors: {
+    mainFont: "#D6D6D6",
+    mainColor: "#213E83",
+    secondaryColor: "#C1CFEB",
+    borderColor: "#184262",
+    additionalColor: "#8F8F8F",
+    shadowColor: "#D9D9D930",
+  },
+};
