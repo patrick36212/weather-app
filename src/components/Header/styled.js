@@ -10,6 +10,12 @@ export const HeaderWrapper = styled.header`
   width: 100%;
   margin: auto;
   gap: 24px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+    padding: 10px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
 `;
 
 export const HeaderTitle = styled.h1`
@@ -18,17 +24,29 @@ export const HeaderTitle = styled.h1`
   color: ${({ theme }) => theme.colors.secondaryFont};
   font-size: 20px;
   margin: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+    display: none;
+  }
 `;
 
 export const NavLogo = styled(LogoIcon)`
   width: 80px;
   stroke: ${({ theme }) => theme.colors.secondaryFont};
   fill: ${({ theme }) => theme.colors.secondaryFont};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+    width: 60px;
+  }
 `;
 export const Nav = styled.div`
   display: flex;
   gap: 16px;
   flex-grow: 1;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+    flex-grow: 0;
+  }
 `;
 
 export const NavLink = styled.a`
@@ -45,5 +63,9 @@ export const NavLink = styled.a`
     border: 1px solid ${({ theme }) => theme.colors.secondaryColor};
     color: ${({ theme }) => theme.colors.secondaryFont};
     transform: scale(1.02);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+    font-size: 12px;
   }
 `;

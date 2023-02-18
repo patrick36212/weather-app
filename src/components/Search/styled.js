@@ -30,6 +30,10 @@ export const SearchWrapper = styled.div`
   max-height: 0;
   opacity: 0;
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+    font-size: 12px;
+  }
+
   ${({ visible }) =>
     visible &&
     css`
@@ -89,7 +93,6 @@ export const SearchDropdownInfoButton = styled.button`
   text-align: left;
   border: none;
   color: ${({ theme }) => theme.colors.mainFont};
-
   display: grid;
   grid-auto-rows: max-content;
   gap: 2px;
@@ -98,10 +101,18 @@ export const SearchDropdownInfoButton = styled.button`
 export const SearchDropdownInfo = styled.span`
   font-size: 14px;
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+    font-size: 12px;
+  }
+
   ${({ cityName }) =>
     cityName &&
     css`
       font-size: 16px;
       font-weight: 600;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+        font-size: 14px;
+      }
     `}
 `;

@@ -6,5 +6,8 @@ export const Section = styled.section`
   justify-items: center;
   align-items: center;
   grid-gap: 12px;
-  padding: 20px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+    grid-template-columns: 1fr;
+  }
 `;

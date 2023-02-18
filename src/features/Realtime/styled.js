@@ -11,6 +11,11 @@ export const RealTimeWrapper = styled.div`
   align-items: center;
   flex-direction: column;
   background: ${({ theme }) => theme.colors.secondaryColor};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+    flex-grow: 0;
+    height: 200px;
+  }
 `;
 
 export const RealTimeAddButton = styled.button`
@@ -24,9 +29,17 @@ export const RealTimeAddButton = styled.button`
 export const ButtonIcon = styled(Add)`
   width: 48px;
   color: ${({ theme }) => theme.colors.secondaryFont};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+    width: 36px;
+  }
 `;
 
 export const RealTimeInfo = styled.p`
   margin: 12px 0;
   color: ${({ theme }) => theme.colors.mainFont};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+    font-size: 14px;
+  }
 `;
