@@ -15,16 +15,15 @@ export const HeaderWrapper = styled.header`
 export const HeaderTitle = styled.h1`
   font-weight: 700;
   text-transform: uppercase;
-  color: ${({ theme }) => theme.colors.secondaryColor};
+  color: ${({ theme }) => theme.colors.secondaryFont};
   font-size: 20px;
   margin: 0;
 `;
 
 export const NavLogo = styled(LogoIcon)`
   width: 80px;
-  stroke: ${({ theme }) => theme.colors.secondaryColor};
-  fill: ${({ theme }) => theme.colors.secondaryColor};
-  filter: drop-shadow(4px 4px 4px ${({ theme }) => theme.colors.shadowColor});
+  stroke: ${({ theme }) => theme.colors.secondaryFont};
+  fill: ${({ theme }) => theme.colors.secondaryFont};
 `;
 export const Nav = styled.div`
   display: flex;
@@ -43,8 +42,8 @@ export const NavLink = styled.a`
   cursor: pointer;
 
   &:hover {
-    border: 1px solid ${({ theme }) => theme.colors.borderColor};
-    color: ${({ theme }) => theme.colors.secondaryColor};
+    border: 1px solid ${({ theme }) => theme.colors.secondaryColor};
+    color: ${({ theme }) => theme.colors.secondaryFont};
     transform: scale(1.02);
   }
 `;

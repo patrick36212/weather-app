@@ -7,7 +7,7 @@ const Header = ({ isDarkTheme, setIsDarkTheme }) => {
       <NavLogo />
       <HeaderTitle>Weather App</HeaderTitle>
       <Nav>
-        <NavLink>Realtime</NavLink>
+        <NavLink>Current</NavLink>
         <NavLink>Forecast</NavLink>
       </Nav>
       <ThemeSwitch isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme} />

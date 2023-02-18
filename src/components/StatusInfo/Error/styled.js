@@ -13,6 +13,7 @@ const resize = keyframes`
   }
 `;
 export const ErrorIcon = styled(EmojiFrown)`
-  width: 80px;
+  width: 22vw;
+  height: 22vw;
   animation: ${resize} 0.6s ease-out;
 `;

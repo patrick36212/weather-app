@@ -5,7 +5,7 @@ export const StatusWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: ${({ theme }) => theme.colors.secondaryColor};
+  color: ${({ theme }) => theme.colors.secondaryFont};
 `;
 
 export const StatusTitle = styled.h3`

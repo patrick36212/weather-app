@@ -9,9 +9,7 @@ export const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     box-sizing: border-box;
     color: ${({ theme }) => theme.colors.mainFont};
-    background: linear-gradient(67.1deg, ${({ theme }) =>
-      theme.colors.mainColor} 0%, ${({ theme }) =>
-  theme.colors.additionalColor} 100%);
+    background: ${({ theme }) => theme.colors.mainColor};
   }
 
   *, ::after, ::before {

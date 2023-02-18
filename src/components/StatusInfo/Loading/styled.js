@@ -10,6 +10,7 @@ const rotation = keyframes`
   }
 `;
 export const LoaderIcon = styled(Sun)`
-  width: 100px;
+  width: 22vw;
+  height: 22vw;
   animation: ${rotation} 5s linear infinite;
 `;

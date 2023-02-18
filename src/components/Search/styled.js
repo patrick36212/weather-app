@@ -43,8 +43,7 @@ export const SearchInputWrapper = styled.div`
   align-items: center;
   padding: 10px;
   border-radius: 30px;
-  border: 1px solid ${({ theme }) => theme.colors.borderColor};
-  background: ${({ theme }) => theme.colors.additionalColor};
+  border: 1px solid ${({ theme }) => theme.colors.mainFont};
 `;
 
 export const SearchInput = styled.input`
@@ -52,24 +51,12 @@ export const SearchInput = styled.input`
   background: transparent;
   outline: none;
   margin: 0 6px;
-
-  ::placeholder {
-    color: ${({ theme }) => theme.colors.mainColor};
-    opacity: 1;
-  }
-
-  :-ms-input-placeholder {
-    color: ${({ theme }) => theme.colors.mainColor};
-  }
-
-  ::-ms-input-placeholder {
-    color: ${({ theme }) => theme.colors.mainColor};
-  }
+  color: ${({ theme }) => theme.colors.mainFont};
 `;
 
 export const SearchIcon = styled(Search)`
   width: 20px;
-  color: ${({ theme }) => theme.colors.mainColor};
+  color: ${({ theme }) => theme.colors.mainFont};
 `;
 
 export const SearchDropdownWrapper = styled.div`
@@ -89,7 +76,7 @@ export const SearchDropdownInfoList = styled.ul`
 `;
 
 export const SearchDropdownInfoItem = styled.li`
-  border: 1px solid ${({ theme }) => theme.colors.borderColor};
+  border: 1px solid ${({ theme }) => theme.colors.mainFont};
   border-radius: 5px;
 
   animation: ${translateY} 0.7s ease-out;
@@ -101,6 +88,7 @@ export const SearchDropdownInfoButton = styled.button`
   width: 100%;
   text-align: left;
   border: none;
+  color: ${({ theme }) => theme.colors.mainFont};
 
   display: grid;
   grid-auto-rows: max-content;
