@@ -1,16 +1,9 @@
-import {
-  MoonIcon,
-  SunIcon,
-  ThemeSwitchBody,
-  ThemeSwitchButton,
-} from "./styled";
+import { MoonIcon, SunIcon, ThemeSwitchBody } from "./styled";
 
 const ThemeSwitch = ({ isDarkTheme, setIsDarkTheme }) => {
   return (
     <ThemeSwitchBody onClick={() => setIsDarkTheme(!isDarkTheme)}>
-      <SunIcon />
-      <MoonIcon />
-      <ThemeSwitchButton isDarkTheme={isDarkTheme}></ThemeSwitchButton>
+      {isDarkTheme ? <MoonIcon /> : <SunIcon />}
     </ThemeSwitchBody>
   );
 };
