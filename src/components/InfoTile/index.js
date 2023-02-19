@@ -1,11 +1,14 @@
 import {
   AdditionalInfo,
   AdditionsInfoWrapper,
+  ControlButtonsWrapper,
+  DeleteButton,
   Icon,
   IconInfoWrapper,
   Info,
   InfoWrapper,
   MainWrapper,
+  RefreshButton,
   Title,
 } from "./styled";
 
@@ -20,11 +23,17 @@ const InfoTile = ({
   pressure,
   localT,
   weather,
+  refreshData,
+  deleteTile,
 }) => {
   const visibilityValue = visibility.toFixed(2);
 
   return (
     <MainWrapper>
+      <ControlButtonsWrapper>
+        <RefreshButton onClick={refreshData} />
+        <DeleteButton onClick={deleteTile} />
+      </ControlButtonsWrapper>
       <Title>
         {city}, {country}
       </Title>
