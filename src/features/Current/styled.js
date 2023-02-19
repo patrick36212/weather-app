@@ -4,17 +4,22 @@ import { Add } from "@styled-icons/fluentui-system-filled/Add";
 export const RealTimeWrapper = styled.div`
   max-width: 470px;
   width: 100%;
-  height: 260px;
-  border-radius: 30px;
+  min-height: 300px;
+  border: 10px solid ${({ theme }) => theme.colors.secondaryColor};
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: ${({ theme }) => theme.colors.secondaryColor};
+  background: ${({ theme }) => theme.colors.mainColor};
+  transition: 0.7s ease-out;
+
+  &:hover {
+    border: 10px solid ${({ theme }) => theme.colors.secondaryFont};
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
     flex-grow: 0;
-    height: 200px;
+    min-height: 200px;
   }
 `;
 

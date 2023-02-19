@@ -1,6 +1,6 @@
 import { Section } from "../../components/Section";
 import { useQuery } from "react-query";
-import { getRealTimeData } from "./getRealTimeData";
+import { getCurrentData } from "./getRealTimeData";
 import {
   ButtonIcon,
   RealTimeAddButton,
@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 import Search from "../../components/Search";
 import InfoTile from "../../components/InfoTile";
 
-const Realtime = () => {
+const Current = () => {
   const [coordinates, setCoordinates] = useState({
     lat: null,
     lon: null,
@@ -24,7 +24,7 @@ const Realtime = () => {
       return;
     } else {
       const stringifyCoordinates = `${coordinates.lat.toString()},${coordinates.lon.toString()}`;
-      return getRealTimeData(stringifyCoordinates);
+      return getCurrentData(stringifyCoordinates);
     }
   });
 
@@ -71,4 +71,4 @@ const Realtime = () => {
   );
 };
 
-export default Realtime;
+export default Current;

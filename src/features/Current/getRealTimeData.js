@@ -1,6 +1,6 @@
 import { fetchFromApi } from "../../core/fetchFromApi";
 
-export const getRealTimeData = (coordinates) =>
+export const getCurrentData = (coordinates) =>
   fetchFromApi({
     path: "/current.json",
     params: {
