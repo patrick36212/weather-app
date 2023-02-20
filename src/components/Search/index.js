@@ -13,8 +13,14 @@ import { useState } from "react";
 import { useQuery } from "react-query";
 import { getSearchData } from "./getSearchData";
 import useDebounce from "./useDebounce";
+import { useDispatch } from "react-redux";
+import {
+  setCoordinates,
+  toggleSearchActive,
+} from "../../features/Current/currentSlice";
 
-const Search = ({ setCoordinates, visible, setIsSearchActive }) => {
+const Search = ({ visible }) => {
+  const dispatch = useDispatch();
   const [query, setQuery] = useState("");
   const debouncedQuery = useDebounce(query, 500);
 
@@ -28,11 +34,13 @@ const Search = ({ setCoordinates, visible, setIsSearchActive }) => {
 
   const handleOnClick = (event, autocomplete) => {
     event.preventDefault();
-    setCoordinates({
-      lon: autocomplete.lon,
-      lat: autocomplete.lat,
-    });
-    setIsSearchActive(false);
+    dispatch(
+      setCoordinates({
+        lat: autocomplete.lat,
+        lon: autocomplete.lon,
+      })
+    );
+    dispatch(toggleSearchActive());
     setQuery("");
   };
 
