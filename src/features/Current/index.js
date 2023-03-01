@@ -13,11 +13,9 @@ import InfoTile from "../../components/InfoTile";
 import { useDispatch, useSelector } from "react-redux";
 import {
   removeCityFromCityList,
-  selectCityCoordinates,
   selectCityList,
   selectCoordinates,
   selectIsSearchActive,
-  setCityCoordinates,
   setCityList,
   setCoordinates,
   toggleSearchActive,
@@ -30,7 +28,6 @@ const Current = () => {
   const coordinates = useSelector(selectCoordinates);
   const isSearchActive = useSelector(selectIsSearchActive);
   const cityList = useSelector(selectCityList);
-  const cityCoordinates = useSelector(selectCityCoordinates);
 
   const currentData = useQuery(["currentData", { coordinates }], () => {
     if (!!coordinates) {
@@ -39,35 +36,26 @@ const Current = () => {
     }
   });
 
-  const cityData = useQuery(["cityData", { cityCoordinates }], () => {
-    if (!!cityCoordinates) {
-      const stringifyCityCoordinates = `${cityCoordinates.lat.toString()},${cityCoordinates.lon.toString()}`;
-      return getCurrentData(stringifyCityCoordinates);
-    }
-  });
-
   useEffect(() => {
     if (!!currentData.data) {
-      dispatch(
-        setCityList({
-          id: nanoid(),
-          weatherData: currentData.data,
-        })
-      );
-      dispatch(setCoordinates(null));
+      if (cityList.some((city) => city.cityCoordinates === coordinates)) {
+        return;
+        dispatch(setCoordinates(null));
+      } else {
+        dispatch(
+          setCityList({
+            id: nanoid(),
+            cityCoordinates: {
+              lat: currentData.data.location.lat,
+              lon: currentData.data.location.lon,
+            },
+            weatherData: currentData.data,
+          })
+        );
+        dispatch(setCoordinates(null));
+      }
     }
-  }, [currentData.data]);
-  const refreshDataOnClick = (city) => {
-    dispatch(
-      setCityCoordinates({
-        lat: city.weatherData.location.lat,
-        lon: city.weatherData.location.lon,
-      })
-    );
-    if (!!cityData) {
-      dispatch(updateCityInCityList(city.id));
-    }
-  };
+  }, [currentData.data, dispatch]);
 
   return (
     <Section>
@@ -75,11 +63,11 @@ const Current = () => {
         <RealTimeWrapper key={city.id}>
           <InfoTile
             deleteTile={() => dispatch(removeCityFromCityList(city.id))}
-            refreshData={() => refreshDataOnClick(city)}
+            refreshData={() => dispatch(updateCityInCityList(city.id))}
             icon={city.weatherData.current.condition.icon}
             city={city.weatherData.location.name}
             country={city.weatherData.location.country}
-            localT={city.weatherData.location.localtime}
+            localT={city.weatherData.current.last_updated}
             degrees={city.weatherData.current.temp_c}
             weather={city.weatherData.current.condition.text}
             realTemp={city.weatherData.current.feelslike_c}
