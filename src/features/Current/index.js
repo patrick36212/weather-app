@@ -39,7 +39,6 @@ const Current = () => {
   useEffect(() => {
     if (!!currentData.data) {
       if (cityList.some((city) => city.cityCoordinates === coordinates)) {
-        return;
         dispatch(setCoordinates(null));
       } else {
         dispatch(
@@ -55,7 +54,7 @@ const Current = () => {
         dispatch(setCoordinates(null));
       }
     }
-  }, [currentData.data, dispatch]);
+  }, [currentData.data, dispatch, cityList, coordinates]);
 
   return (
     <Section>
