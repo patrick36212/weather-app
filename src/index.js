@@ -10,7 +10,7 @@ import store from "./core/store";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 5000,
+      cacheTime: 60000,
       retry: 0,
     },
   },
