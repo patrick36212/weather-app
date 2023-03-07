@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { Add } from "@styled-icons/fluentui-system-filled/Add";
 
 export const RealTimeWrapper = styled.div`
-  max-width: 470px;
   min-height: 300px;
   width: 100%;
   height: 100%;
