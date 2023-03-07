@@ -15,4 +15,12 @@ export const GlobalStyle = createGlobalStyle`
   *, ::after, ::before {
     box-sizing: inherit;
   }
+  
+  #root {
+    padding: 20px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+      padding: 10px;
+    }
+  }
 `;
