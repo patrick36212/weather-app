@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { ReactComponent as LogoIcon } from "./logo.svg";
 
 export const HeaderWrapper = styled.header`
-  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12,7 +11,6 @@ export const HeaderWrapper = styled.header`
   gap: 24px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
-    padding: 10px;
     gap: 12px;
     flex-wrap: wrap;
   }
