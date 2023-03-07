@@ -10,6 +10,7 @@ const Main = styled.main`
   display: flex;
   flex-direction: column;
   gap: 40px;
+  padding: 20px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
     padding: 10px;
