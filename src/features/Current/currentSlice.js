@@ -8,19 +8,22 @@ const currentSlice = createSlice({
     coordinates: null,
   },
   reducers: {
-    setCityList: ({ cityList }, { payload: city }) => {
-      cityList.push(city);
+    setCityList: (state, { payload: city }) => {
+      state.cityList.push(city);
     },
     removeCityFromCityList: ({ cityList }, { payload: cityId }) => {
       const cityIndex = cityList.findIndex(({ id }) => id === cityId);
       cityList.splice(cityIndex, 1);
     },
-    updateCityInCityList: (state, { payload: cityId }) => {
-      const cityIndex = state.cityList.findIndex(({ id }) => id === cityId);
-      state.coordinates = state.cityList[cityIndex].cityCoordinates;
-    },
     setCoordinates: (state, { payload: coordinates }) => {
       state.coordinates = coordinates;
+    },
+    updateCityDataInCityList: (
+      state,
+      { payload: { cityId, updatedWeatherData } }
+    ) => {
+      const cityIndex = state.cityList.findIndex(({ id }) => id === cityId);
+      state.cityList.splice(cityIndex, 1, updatedWeatherData);
     },
     toggleSearchActive: (state) => {
       state.isSearchActive = !state.isSearchActive;
@@ -33,7 +36,7 @@ export const {
   removeCityFromCityList,
   setCoordinates,
   toggleSearchActive,
-  updateCityInCityList,
+  updateCityDataInCityList,
 } = currentSlice.actions;
 
 const selectCurrentState = (state) => state.current;
