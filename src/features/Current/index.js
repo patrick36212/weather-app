@@ -19,7 +19,7 @@ import {
   setCityList,
   setCoordinates,
   toggleSearchActive,
-  updateCityInCityList,
+  updateCityDataInCityList,
 } from "./currentSlice";
 import { nanoid } from "@reduxjs/toolkit";
 
@@ -38,13 +38,27 @@ const Current = () => {
 
   useEffect(() => {
     if (!!currentData.data) {
-      if (cityList.some((city) => city.cityCoordinates === coordinates)) {
+      if (cityList.some((city) => city.coordinates === coordinates)) {
+        const city = cityList.find((city) => city.coordinates === coordinates);
+
+        const updatedCity = {
+          id: city.id,
+          coordinates: city.coordinates,
+          weatherData: currentData.data,
+        };
+
+        dispatch(
+          updateCityDataInCityList({
+            cityId: city.id,
+            updatedWeatherData: updatedCity,
+          })
+        );
         dispatch(setCoordinates(null));
       } else {
         dispatch(
           setCityList({
             id: nanoid(),
-            cityCoordinates: {
+            coordinates: {
               lat: currentData.data.location.lat,
               lon: currentData.data.location.lon,
             },
@@ -54,7 +68,7 @@ const Current = () => {
         dispatch(setCoordinates(null));
       }
     }
-  }, [currentData.data, dispatch, cityList, coordinates]);
+  }, [currentData.data, dispatch, coordinates, cityList]);
 
   return (
     <Section>
@@ -62,7 +76,7 @@ const Current = () => {
         <RealTimeWrapper key={city.id}>
           <InfoTile
             deleteTile={() => dispatch(removeCityFromCityList(city.id))}
-            refreshData={() => dispatch(updateCityInCityList(city.id))}
+            refreshData={() => dispatch(setCoordinates(city.coordinates))}
             icon={city.weatherData.current.condition.icon}
             city={city.weatherData.location.name}
             country={city.weatherData.location.country}
