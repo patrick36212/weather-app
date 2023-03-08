@@ -12,7 +12,7 @@ const Main = styled.main`
   gap: 40px;
   padding: 20px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
     padding: 10px;
   }
 `;

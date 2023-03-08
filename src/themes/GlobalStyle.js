@@ -19,7 +19,7 @@ export const GlobalStyle = createGlobalStyle`
   #root {
     padding: 20px;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.laptop}px) {
       padding: 10px;
     }
   }

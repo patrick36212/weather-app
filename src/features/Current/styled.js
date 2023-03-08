@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Add } from "@styled-icons/fluentui-system-filled/Add";
 
 export const RealTimeWrapper = styled.div`
+  max-width: 486px;
   min-height: 300px;
   width: 100%;
   height: 100%;
@@ -17,8 +18,16 @@ export const RealTimeWrapper = styled.div`
     border: 10px solid ${({ theme }) => theme.colors.secondaryFont};
   }
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.laptop}px) {
+    max-width: 476px;
+    min-height: 250px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+    max-width: 348px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
-    flex-grow: 0;
     min-height: 200px;
   }
 `;
