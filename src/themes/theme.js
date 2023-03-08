@@ -1,5 +1,5 @@
 const breakpoints = {
-  mobileS: 320,
+  mobileS: 374,
   mobile: 450,
   tablet: 768,
   laptop: 1024,
