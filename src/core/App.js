@@ -1,23 +1,15 @@
-import { useState } from "react";
+import React from "react";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "../themes/GlobalStyle";
 import { dark, light } from "../themes/theme";
-import Main from "../components/Main";
-import Header from "../components/Header";
-import DateComponent from "../components/DateComponent";
-import Current from "../features/Current";
+import { router } from "./routes";
+import { RouterProvider } from "react-router";
 
 function App() {
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
-
   return (
-    <ThemeProvider theme={isDarkTheme ? dark : light}>
+    <ThemeProvider theme={dark}>
       <GlobalStyle />
-      <Header isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme} />
-      <Main>
-        <DateComponent />
-        <Current />
-      </Main>
+      <RouterProvider router={router} />
     </ThemeProvider>
   );
 }
