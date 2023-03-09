@@ -1,16 +1,20 @@
-import { Section } from "../../components/Section";
+import React, { useEffect } from "react";
 import { useQuery } from "react-query";
-import { getCurrentData } from "./getCurrentData";
+import { useDispatch, useSelector } from "react-redux";
+import Header from "../../components/Header";
+import Main from "../../components/Main";
+import Section from "../../components/Section";
+import DateComponent from "../../components/DateComponent";
+import Search from "../../components/Search";
+import InfoTile from "../../components/InfoTile";
 import {
   ButtonIcon,
   RealTimeAddButton,
   RealTimeInfo,
   RealTimeWrapper,
 } from "./styled";
-import { useEffect } from "react";
-import Search from "../../components/Search";
-import InfoTile from "../../components/InfoTile";
-import { useDispatch, useSelector } from "react-redux";
+import { getCurrentData } from "./getCurrentData";
+import { nanoid } from "@reduxjs/toolkit";
 import {
   removeCityFromCityList,
   selectCityList,
@@ -21,7 +25,6 @@ import {
   toggleSearchActive,
   updateCityDataInCityList,
 } from "./currentSlice";
-import { nanoid } from "@reduxjs/toolkit";
 
 const Current = () => {
   const dispatch = useDispatch();
@@ -71,33 +74,39 @@ const Current = () => {
   }, [currentData.data, dispatch, coordinates, cityList]);
 
   return (
-    <Section>
-      {cityList.map((city) => (
-        <RealTimeWrapper key={city.id}>
-          <InfoTile
-            deleteTile={() => dispatch(removeCityFromCityList(city.id))}
-            refreshData={() => dispatch(setCoordinates(city.coordinates))}
-            icon={city.weatherData.current.condition.icon}
-            city={city.weatherData.location.name}
-            country={city.weatherData.location.country}
-            localT={city.weatherData.current.last_updated}
-            degrees={city.weatherData.current.temp_c}
-            weather={city.weatherData.current.condition.text}
-            realTemp={city.weatherData.current.feelslike_c}
-            humidify={city.weatherData.current.humidity}
-            visibility={city.weatherData.current.vis_km}
-            pressure={city.weatherData.current.pressure_mb}
-          />
-        </RealTimeWrapper>
-      ))}
-      <RealTimeWrapper>
-        <RealTimeAddButton onClick={() => dispatch(toggleSearchActive())}>
-          <ButtonIcon />
-          <RealTimeInfo>Click + to search</RealTimeInfo>
-        </RealTimeAddButton>
-        <Search visible={isSearchActive} />
-      </RealTimeWrapper>
-    </Section>
+    <>
+      <Header />
+      <Main>
+        <DateComponent />
+        <Section>
+          {cityList.map((city) => (
+            <RealTimeWrapper key={city.id}>
+              <InfoTile
+                deleteTile={() => dispatch(removeCityFromCityList(city.id))}
+                refreshData={() => dispatch(setCoordinates(city.coordinates))}
+                icon={city.weatherData.current.condition.icon}
+                city={city.weatherData.location.name}
+                country={city.weatherData.location.country}
+                localT={city.weatherData.current.last_updated}
+                degrees={city.weatherData.current.temp_c}
+                weather={city.weatherData.current.condition.text}
+                realTemp={city.weatherData.current.feelslike_c}
+                humidify={city.weatherData.current.humidity}
+                visibility={city.weatherData.current.vis_km}
+                pressure={city.weatherData.current.pressure_mb}
+              />
+            </RealTimeWrapper>
+          ))}
+          <RealTimeWrapper>
+            <RealTimeAddButton onClick={() => dispatch(toggleSearchActive())}>
+              <ButtonIcon />
+              <RealTimeInfo>Click + to search</RealTimeInfo>
+            </RealTimeAddButton>
+            <Search visible={isSearchActive} />
+          </RealTimeWrapper>
+        </Section>
+      </Main>
+    </>
   );
 };
 
