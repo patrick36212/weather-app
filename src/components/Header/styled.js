@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link, NavLink } from "react-router-dom";
 import { ReactComponent as LogoIcon } from "./logo.svg";
 
 export const HeaderWrapper = styled.header`
@@ -47,15 +48,17 @@ export const Nav = styled.div`
   }
 `;
 
-export const NavLink = styled.a`
+export const NavigationLink = styled(NavLink)`
   font-weight: 600;
   text-transform: uppercase;
   padding: 10px;
   border-radius: 30px;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   font-size: 14px;
   transition: 0.3s ease-out;
   cursor: pointer;
+  text-decoration: none;
+  color: ${({ theme }) => theme.colors.mainFont};
 
   &:hover {
     border: 1px solid ${({ theme }) => theme.colors.secondaryColor};
@@ -63,7 +66,17 @@ export const NavLink = styled.a`
     transform: scale(1.02);
   }
 
+  &.active {
+    border: 2px solid ${({ theme }) => theme.colors.secondaryColor};
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
     font-size: 12px;
   }
+`;
+
+export const HeaderLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 `;
