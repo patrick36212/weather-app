@@ -1,14 +1,24 @@
-import { Nav, NavLink, HeaderWrapper, NavLogo, HeaderTitle } from "./styled";
+import {
+  Nav,
+  HeaderWrapper,
+  NavLogo,
+  HeaderTitle,
+  NavigationLink,
+  HeaderLink,
+} from "./styled";
 import ThemeSwitch from "./ThemeSwitch";
+import { toCurrentWeather, toForecast } from "../../core/routes";
 
 const Header = ({ isDarkTheme, setIsDarkTheme }) => {
   return (
     <HeaderWrapper>
-      <NavLogo />
-      <HeaderTitle>Weather App</HeaderTitle>
+      <HeaderLink to={"/"}>
+        <NavLogo />
+        <HeaderTitle>Weather App</HeaderTitle>
+      </HeaderLink>
       <Nav>
-        <NavLink>Current</NavLink>
-        <NavLink>Forecast</NavLink>
+        <NavigationLink to={toCurrentWeather}>Current</NavigationLink>
+        <NavigationLink to={toForecast}>Forecast</NavigationLink>
       </Nav>
       <ThemeSwitch isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme} />
     </HeaderWrapper>
