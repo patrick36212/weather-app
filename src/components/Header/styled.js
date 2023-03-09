@@ -23,7 +23,7 @@ export const HeaderTitle = styled.h1`
   font-size: 20px;
   margin: 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
     display: none;
   }
 `;

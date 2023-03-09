@@ -25,14 +25,6 @@ export const MainWrapper = styled.article`
   color: ${({ theme }) => theme.colors.secondaryFont};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.laptop}px) {
-    padding: 16px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
-    padding: 14px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
     padding: 10px;
   }
 `;
@@ -46,7 +38,7 @@ export const Title = styled.h2`
   max-width: 85%;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.laptop}px) {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
@@ -72,12 +64,8 @@ export const AdditionalInfo = styled.span`
     `};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.laptop}px) {
-    font-size: 16px;
-    line-height: 18px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
     font-size: 14px;
+    line-height: 18px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileS}px) {
@@ -128,12 +116,7 @@ export const Info = styled.p`
   margin: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.laptop}px) {
-    font-size: 26px;
-    font-weight: 600;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 600;
   }
 
