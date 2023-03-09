@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Section = styled.section`
+const Section = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(348px, 1fr));
   justify-items: center;
@@ -15,3 +15,5 @@ export const Section = styled.section`
     grid-template-columns: 1fr;
   }
 `;
+
+export default Section;
