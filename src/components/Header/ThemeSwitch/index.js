@@ -1,9 +1,14 @@
 import { MoonIcon, SunIcon, ThemeSwitchBody } from "./styled";
+import { useDispatch, useSelector } from "react-redux";
+import { selectIsDarkThemeOn, toggleDarkTheme } from "./themeSlice";
 
-const ThemeSwitch = ({ isDarkTheme, setIsDarkTheme }) => {
+const ThemeSwitch = () => {
+  const dispatch = useDispatch();
+  const isDarkThemeOn = useSelector(selectIsDarkThemeOn);
+
   return (
-    <ThemeSwitchBody onClick={() => setIsDarkTheme(!isDarkTheme)}>
-      {isDarkTheme ? <MoonIcon /> : <SunIcon />}
+    <ThemeSwitchBody onClick={() => dispatch(toggleDarkTheme())}>
+      {isDarkThemeOn ? <MoonIcon /> : <SunIcon />}
     </ThemeSwitchBody>
   );
 };
