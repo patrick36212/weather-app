@@ -5,11 +5,13 @@ const DateComponent = () => {
   const day = new Intl.DateTimeFormat("en", { weekday: "long" }).format(
     timestamp
   );
-  const fullDate = timestamp
-    .toLocaleDateString()
-    .split(".")
-    .reverse()
-    .join("-");
+  const fullDateFormat = timestamp.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  });
+
+  const fullDate = fullDateFormat.split("/").reverse().join("-");
 
   return (
     <DateWrapper>
