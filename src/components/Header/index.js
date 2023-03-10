@@ -9,7 +9,7 @@ import {
 import ThemeSwitch from "./ThemeSwitch";
 import { toCurrentWeather, toForecast } from "../../core/routes";
 
-const Header = ({ isDarkTheme, setIsDarkTheme }) => {
+const Header = () => {
   return (
     <HeaderWrapper>
       <HeaderLink to={"/"}>
@@ -20,7 +20,7 @@ const Header = ({ isDarkTheme, setIsDarkTheme }) => {
         <NavigationLink to={toCurrentWeather}>Current</NavigationLink>
         <NavigationLink to={toForecast}>Forecast</NavigationLink>
       </Nav>
-      <ThemeSwitch isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme} />
+      <ThemeSwitch />
     </HeaderWrapper>
   );
 };
