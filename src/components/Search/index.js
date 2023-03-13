@@ -13,39 +13,38 @@ import { useState } from "react";
 import { useQuery } from "react-query";
 import { getSearchData } from "./getSearchData";
 import useDebounce from "./useDebounce";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
+  selectIsSearchActive,
   setCoordinates,
   toggleSearchActive,
-} from "../../features/Current/currentSlice";
+} from "./searchSlice";
 
-const Search = ({ visible }) => {
+const Search = () => {
   const dispatch = useDispatch();
+  const isSearchActive = useSelector(selectIsSearchActive);
+
   const [query, setQuery] = useState("");
   const debouncedQuery = useDebounce(query, 500);
 
-  const { data } = useQuery(["autocomplete", debouncedQuery], () => {
-    if (!query) {
-      return null;
-    } else {
+  const searchCity = useQuery(["searchCity", debouncedQuery], () => {
+    if (!!query) {
       return getSearchData(debouncedQuery);
     }
   });
 
-  const handleOnClick = (event, autocomplete) => {
-    event.preventDefault();
-    dispatch(
-      setCoordinates({
-        lat: autocomplete.lat,
-        lon: autocomplete.lon,
-      })
-    );
+  const handleOnClick = (autocomplete) => {
+    const initialCoordinates = {
+      lat: autocomplete.lat,
+      lon: autocomplete.lon,
+    };
+    dispatch(setCoordinates(initialCoordinates));
     dispatch(toggleSearchActive());
     setQuery("");
   };
 
   return (
-    <SearchWrapper visible={visible}>
+    <SearchWrapper visible={isSearchActive}>
       <SearchInputWrapper>
         <SearchIcon />
         <SearchInput
@@ -54,14 +53,13 @@ const Search = ({ visible }) => {
           value={query || ""}
         />
       </SearchInputWrapper>
-      {data && (
+      {searchCity.data && (
         <SearchDropdownWrapper>
           <SearchDropdownInfoList>
-            {data.slice(0, 5).map((autocomplete) => (
+            {searchCity.data.slice(0, 5).map((autocomplete) => (
               <SearchDropdownInfoItem key={autocomplete.id}>
                 <SearchDropdownInfoButton
-                  type="submit"
-                  onClick={(event) => handleOnClick(event, autocomplete)}
+                  onClick={() => handleOnClick(autocomplete)}
                 >
                   <SearchDropdownInfo cityName>
                     {autocomplete.name}, {autocomplete.country}
