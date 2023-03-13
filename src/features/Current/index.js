@@ -18,18 +18,18 @@ import { nanoid } from "@reduxjs/toolkit";
 import {
   removeCityFromCityList,
   selectCityList,
-  selectCoordinates,
-  selectIsSearchActive,
   setCityList,
-  setCoordinates,
-  toggleSearchActive,
   updateCityDataInCityList,
 } from "./currentSlice";
+import {
+  selectCoordinates,
+  setCoordinates,
+  toggleSearchActive,
+} from "../../components/Search/searchSlice";
 
 const Current = () => {
   const dispatch = useDispatch();
   const coordinates = useSelector(selectCoordinates);
-  const isSearchActive = useSelector(selectIsSearchActive);
   const cityList = useSelector(selectCityList);
 
   const currentData = useQuery(["currentData", { coordinates }], () => {
@@ -102,7 +102,7 @@ const Current = () => {
               <ButtonIcon />
               <RealTimeInfo>Click + to search</RealTimeInfo>
             </RealTimeAddButton>
-            <Search visible={isSearchActive} />
+            <Search />
           </RealTimeWrapper>
         </Section>
       </Main>
