@@ -1,0 +1,6 @@
+{
+  "short_name": "Weather App",
+  "name": "Weather App created as a practice in React using WeatherApi.com",
+  "start_url": ".",
+  "display": "standalone"
+}
